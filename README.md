@@ -20,3 +20,34 @@ To run *lifeterm* run with a command like:
 ```
 ./lifeterm
 ```
+
+
+Screenshot?
+-----------
+
+Although *lifeterm* will (probably) look different each time you run it
+(and depends on the width and height of your terminal), it looks something like:
+```
+                                    ██   █  ▓▓▓██   ██                       ▓█
+█ █▓                                 ▓▓▓▓▓▓████  █                             
+▓  █                                  ███   ▓▓▓██      ██                      
+   █                                 ▓█  █             ██                 ▓▓█  
+                       ▓             █   █                                █  █ 
+                    █    █           █ █          █        ██                ▓ 
+                     ██  █                       █ █       ██                  
+                      ▓▓▓             ▓█ █▓      █  █    ▓▓▓                █ █
+                                        ▓         ██    █ █                 ▓█▓
+                         ██                            ▓█ █▓                   
+                █        ██       ██▓                                          
+               █▓█                ▓█                                 ▓█▓       
+              █▓▓▓█                 █                               █   █      
+              ▓█▓ █                        ██                ██    ▓           
+               ██ ██                       █ █▓             ▓ █     ██ █▓      
+          █▓   ▓█ █▓     █                  ▓██              █       ▓▓        
+          ██     █     ▓ █            ██                  ███                  
+                        █▓           ▓  ▓   ▓██            ▓         ▓█▓       
+                                     ▓██  ██ ██                                
+                                   ▓█ ▓  ▓ █▓              █         █      ▓  
+                                   █ █   █ ▓              █ █        ▓ █   ███ 
+                                   █  █ ▓           ██     █               ▓ █▓
+```
