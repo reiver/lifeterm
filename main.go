@@ -50,14 +50,13 @@ func main() {
 
 
 	// Make time progress.
-        fmt.Print(world)
-        for {
-                world.Step()
-                fmt.Print("\x0c") // form feed character -- ^L
-                fmt.Print(world)
+		fmt.Print(world)
+		for {
+			world.Step()
+			fmt.Print("\x0c") // form feed character -- ^L
+			fmt.Print(world)
 
-                time.Sleep(350 * time.Millisecond)
-        }
-
+			time.Sleep(350 * time.Millisecond)
+		}
 }
 
