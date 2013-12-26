@@ -1,9 +1,7 @@
 Life Term
 =========
 
-A simple implementation of Conway's Game of Life in Go.
-
-It is designed to work with a terminal -- interface.
+A simple implementation of Conway's Game of Life in Go, that runs in the terminal.
 
 
 Building
