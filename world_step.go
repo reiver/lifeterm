@@ -1,11 +1,12 @@
 package main
 
 
-
 func (me *World) Step() {
 
 	// For each cell on in the world.
-		for i:=0; i<len(me.buffer); i++ {
+		lenBuffer := me.width*me.height
+
+		for i:=0; i<lenBuffer; i++ {
 
 			// Convert the buffer index (i) to x-y-coordinates.
 				x,y := me.indexToXY(i)
@@ -47,10 +48,13 @@ func (me *World) Step() {
 			//
 			// We store these (new) calculated values in the "Next" field in the cell, because we need the (old) "Current" values to stay
 			// there until we have completed all the calculations.
+//me.setNext(x,y,  me.Get(x-1 , y-1)  )
 				if ' ' == me.Get(x,y) {
 
 					if 3 == crowdSize {
 						me.setNext(x,y, '\u2593')
+					} else {
+						me.setNext(x,y, ' ')
 					}
 
 				} else {
@@ -66,7 +70,5 @@ func (me *World) Step() {
 
 
 	// Move the (new) calculated values in the "Next" field of the cell to the "Current" field.
-		for i:=0; i<len(me.buffer); i++ {
-			me.buffer[i].Current = me.buffer[i].Next
-		}
+		me.IncrementTimeIndex()
 }

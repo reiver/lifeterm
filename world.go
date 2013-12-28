@@ -3,28 +3,51 @@ package main
 
 
 type World struct {
-	width int
+	timeIndex uint
+	width  int
 	height int
-	buffer []Cell
+	temporalBuffer [][]Cell
 }
 
 func NewWorld(width int, height int) (*World) {
 
-	newBufferLen := width*height
+	// Calculate the length of a buffer.
+		newBufferLen := width*height
 
-	newBuffer := make([]Cell, newBufferLen)
-	for i:=0; i<len(newBuffer);i++ {
-		newBuffer[i].Next    = ' '
-		newBuffer[i].Current = ' '
-	}
+	
+	// Specify how many buffers we are going to have.
+	// Must be at least 2.
+		historyDepth := 2
 
-	me := World{
-		width      : width,
-		height     : height,
-		buffer     : newBuffer,
-	}
 
-	return &me
+	// Create the buffers.
+		newTemporalBuffer := make([][]Cell, historyDepth)
+
+		for i:=0; i<historyDepth; i++ {
+
+			newBuffer := make([]Cell, newBufferLen)
+
+			for ii:=0; ii<len(newBuffer); ii++ {
+				newBuffer[ii].Value = ' '
+			}
+
+			newTemporalBuffer[i] = newBuffer
+		}
+
+
+	// New.
+		me := World{
+			timeIndex      : uint(0),
+			width          : width,
+			height         : height,
+			temporalBuffer : newTemporalBuffer,
+		}
+
+		me.TimeIndexInit()
+
+
+	// Return.
+		return &me
 }
 
 
@@ -80,23 +103,29 @@ func (me *World) indexToXY(index int) (x, y int) {
 
 func (me *World) setNext(x, y int, value rune) {
 
+	temporalIndex := me.NextTimeIndex()
+
 	index := me.xyToIndex(x,y)
 
-	me.buffer[index].Next = value
+	me.temporalBuffer[temporalIndex][index].Value = value
 }
 func (me *World) Set(x, y int, value rune) {
 
+	temporalIndex := me.CurrentTimeIndex()
+
 	index := me.xyToIndex(x,y)
 
-	me.buffer[index].Current = value
+	me.temporalBuffer[temporalIndex][index].Value = value
 }
 func (me *World) Get(x, y int) rune {
+
+	temporalIndex := me.CurrentTimeIndex()
 
 	x,y = me.canonicalXY(x,y)
 
 	index := me.xyToIndex(x,y)
 
-	r := me.buffer[index].Current
+	r := me.temporalBuffer[temporalIndex][index].Value
 
 	return r
 }

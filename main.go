@@ -40,9 +40,7 @@ func main() {
 			for x:=0; x<terminalWidth; x++ {
 
 				if 0 == randomness.Intn(unrandom) {
-
 					world.Set(x,y, '\u2588')
-
 				}
 
 			}
@@ -50,13 +48,14 @@ func main() {
 
 
 	// Make time progress.
+		fmt.Print("\x0c") // form feed character -- ^L
 		fmt.Print(world)
 		for {
+			time.Sleep(350 * time.Millisecond)
+
 			world.Step()
 			fmt.Print("\x0c") // form feed character -- ^L
 			fmt.Print(world)
-
-			time.Sleep(350 * time.Millisecond)
 		}
 }
 
