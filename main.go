@@ -22,8 +22,8 @@ func main() {
 	// height.
 	//
 	// So, we use the terminal width and height as default values (for the
-	// width and height) and let the user override those values, if they
-	// wish.
+	// width and height of the world) and let the user override those values,
+	// if they wish.
 	//
 	// Although, it is expected that most of the time, the user will probably
 	// just want the terminal width and height, and won't override them.
@@ -48,16 +48,16 @@ func main() {
 
 	// Set up world.
 	//
-	// When we start of, all the cells are dead. To see anything interestng happen,
+	// When we start off, all the cells are dead. To see anything interestng happen,
 	// we need to make some of these cells alive.
 	//
-	// So, we do through each cell, and then use a pseudo-random number generator to
+	// So, we go through each cell, and then use a pseudo-random number generator to
 	// help us decide whether to make the cell alive or not.
 	//
-	// Essentially, each cell has a 1/unrandom chance of being made alive. Note that
-	// "unrandom" is a variable. So, for example, if unrandin is 3, then each cell
-	// has a probability of 1/3 of being made alive -- has a 1 in 3 chance of being
-	// made alive.
+	// Essentially, each cell has a 1/unrandom probability of being made alive -- has
+	// a 1 in unrandom chance of being made live. Note that "unrandom" is a variable.
+	// So, for example, if unrandin is 3, then each cell has a probability of 1/3 of
+	// being made alive -- has a 1 in 3 chance of being made alive.
 		var unrandom int
 
 		flag.IntVar(&unrandom, "unrandom", 3, "each cell is initially alive, with a probability of 1/unrandom")
