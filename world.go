@@ -6,6 +6,7 @@ type World struct {
 	timeIndex uint
 	width  int
 	height int
+	cellStepFunc CellStepFunc
 	temporalBuffer [][]Cell
 }
 
@@ -14,9 +15,8 @@ func NewWorld(width int, height int) (*World) {
 	// Calculate the length of a buffer.
 		newBufferLen := width*height
 
-	
 	// Specify how many buffers we are going to have.
-	// Must be at least 2.
+	// Must be at least 2 -- must be ≥ 2.
 		historyDepth := 2
 
 
@@ -40,6 +40,7 @@ func NewWorld(width int, height int) (*World) {
 			timeIndex      : uint(0),
 			width          : width,
 			height         : height,
+			cellStepFunc   : LifeCellStepFunc,
 			temporalBuffer : newTemporalBuffer,
 		}
 
