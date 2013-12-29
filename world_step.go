@@ -48,7 +48,6 @@ func (me *World) Step() {
 			//
 			// We store these (new) calculated values in the "Next" field in the cell, because we need the (old) "Current" values to stay
 			// there until we have completed all the calculations.
-//me.setNext(x,y,  me.Get(x-1 , y-1)  )
 				if ' ' == me.Get(x,y) {
 
 					if 3 == crowdSize {

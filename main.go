@@ -3,6 +3,7 @@ package main
 import "flag"
 import "fmt"
 import "math/rand"
+import "os"
 import "time"
 
 
@@ -10,7 +11,7 @@ import "time"
 func main() {
 
 	// Figure out the width and height of the world.
-		stdinFd := 0
+		stdinFd := int(os.Stdout.Fd())
 
 		terminalWidth, terminalHeight, err := TerminalSize(stdinFd)
 		if nil != err {
