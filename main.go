@@ -11,6 +11,22 @@ import "time"
 func main() {
 
 	// Figure out the width and height of the world.
+	//
+	// We do this by first trying to get the width and height of the terminal.
+	//
+	// (Note that, if for whatever reason, we cannot get the width and height
+	// of the terminal, then we just default the terminal width and height to
+	// the well known (metaphorical) "least common denominator" of 80x24.
+	//
+	// Then, after that we check to see if the user has specified a width and
+	// height.
+	//
+	// So, we use the terminal width and height as default values (for the
+	// width and height) and let the user override those values, if they
+	// wish.
+	//
+	// Although, it is expected that most of the time, the user will probably
+	// just want the terminal width and height, and won't override them.
 		stdinFd := int(os.Stdout.Fd())
 
 		terminalWidth, terminalHeight, err := TerminalSize(stdinFd)
@@ -31,6 +47,17 @@ func main() {
 
 
 	// Set up world.
+	//
+	// When we start of, all the cells are dead. To see anything interestng happen,
+	// we need to make some of these cells alive.
+	//
+	// So, we do through each cell, and then use a pseudo-random number generator to
+	// help us decide whether to make the cell alive or not.
+	//
+	// Essentially, each cell has a 1/unrandom chance of being made alive. Note that
+	// "unrandom" is a variable. So, for example, if unrandin is 3, then each cell
+	// has a probability of 1/3 of being made alive -- has a 1 in 3 chance of being
+	// made alive.
 		var unrandom int
 
 		flag.IntVar(&unrandom, "unrandom", 3, "each cell is initially alive, with a probability of 1/unrandom")
