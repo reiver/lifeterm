@@ -4,24 +4,6 @@ Life Term
 A simple implementation of Conway's Game of Life in Go, that runs in the terminal.
 
 
-Building
---------
-
-To build *lifeterm* (from the source code) run the command:
-```
-go build -o lifeterm  cell.go  main.go  terminal.go  world.go  world_step.go  world_string.go  world_time.go  world_step_life.go
-```
-
-
-Running
--------
-
-To run *lifeterm* run with a command like:
-```
-./lifeterm
-```
-
-
 Screenshot?
 -----------
 
@@ -51,3 +33,36 @@ Although *lifeterm* will (probably) look different each time you run it
                                    █ █   █ ▓              █ █        ▓ █   ███ 
                                    █  █ ▓           ██     █               ▓ █▓
 ```
+
+
+Dependencies
+------------
+
+Go Cellular Automata https://github.com/reiver/go-cellularautomata/square
+
+One way to get this satisfy this dependency is to run:
+```
+go get github.com/reiver/go-cellularautomata/square
+```
+
+
+Building
+--------
+
+To build *lifeterm* (from the source code) run the command:
+```
+go build -o lifeterm  main.go  terminal.go
+```
+
+(This will create the file "lifeterm".)
+
+
+Running
+-------
+
+To run *lifeterm* run with a command like:
+```
+./lifeterm
+```
+
+

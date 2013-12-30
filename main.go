@@ -2,6 +2,7 @@ package main
 
 import "flag"
 import "fmt"
+import "github.com/reiver/go-cellularautomata/square"
 import "math/rand"
 import "os"
 import "time"
@@ -43,7 +44,7 @@ func main() {
 
 
 	// Initialize the world.
-		world := NewWorld(worldWidth, worldHeight)
+		world := square.NewWorld(worldWidth, worldHeight)
 
 
 	// Set up world.
