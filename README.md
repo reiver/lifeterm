@@ -73,4 +73,6 @@ To run *lifeterm* run with a command like:
 ./lifeterm
 ```
 
+To exit the program press [CTRL]+[C] -- press ^C
+
 
