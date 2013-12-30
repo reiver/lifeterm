@@ -40,7 +40,7 @@ Dependencies
 
 Life Term only has one dependency:
 
-* Go Cellular Automata https://github.com/reiver/go-cellularautomata/square
+* Go Cellular Automata https://github.com/reiver/go-cellularautomata
 
 One way to satisfy this dependency is to install it with a command like the following.
 ```
