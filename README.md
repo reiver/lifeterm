@@ -38,11 +38,19 @@ Although *lifeterm* will (probably) look different each time you run it
 Dependencies
 ------------
 
-Go Cellular Automata https://github.com/reiver/go-cellularautomata/square
+Life Term only has one dependency:
 
-One way to get this satisfy this dependency is to run:
+* Go Cellular Automata https://github.com/reiver/go-cellularautomata/square
+
+One way to satisfy this dependency is to install it with a command like the following.
 ```
 go get github.com/reiver/go-cellularautomata/square
+```
+
+Note that you may need to be root to do this, if that is the case for you then you
+may be able to do that with the command
+```
+sudo go get github.com/reiver/go-cellularautomata/square
 ```
 
 
